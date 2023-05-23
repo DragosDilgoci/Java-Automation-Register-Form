@@ -2,6 +2,7 @@ package Tests;
 
 import Utils.SeleniumUtils;
 import DataProviders.SignUpDataProvider;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import Pages.SignUpPage;
 
@@ -18,12 +19,13 @@ public class SignUpTest extends BaseUITest{
 
         signUpPage.open(signUpPageUrl);
 
-//        signUpPage.registerNewUser(username, password, confirmPassword, gender, firstName, lastName, email, dateOfBirth, nationality, termsAndConditionSelected);
-//        Assert.assertTrue(signUpPage.checkErr(expectedUserNameErr, "username"));
-//        Assert.assertTrue(signUpPage.checkErr(expectedPasswordErr, "password"));
-//        Assert.assertTrue(signUpPage.checkErr(expectedConfirmationPasswordErr, "confirmPassword"));
-//        Assert.assertTrue(signUpPage.checkErr(expectedFirstNameError, "firstName"));
-//        Assert.assertTrue(signUpPage.checkErr(expectedLastNameError, "lastName"));
-//        Assert.assertTrue(signUpPage.checkErr(expectedEmailError, "email"));
+        signUpPage.registerNewUser(username, password, confirmPassword, gender, firstName, lastName, email, dateOfBirth, nationality, termsAndConditionSelected);
+        Assert.assertTrue(signUpPage.checkErr(expectedUserNameErr, "username"));
+        Assert.assertTrue(signUpPage.checkErr(expectedPasswordErr, "password"));
+        Assert.assertTrue(signUpPage.checkErr(expectedConfirmationPasswordErr, "confirmPassword"));
+        Assert.assertTrue(signUpPage.checkErr(expectedFirstNameError, "firstName"));
+        Assert.assertTrue(signUpPage.checkErr(expectedLastNameError, "lastName"));
+        Assert.assertTrue(signUpPage.checkErr(expectedEmailError, "email"));
+        Assert.assertTrue(signUpPage.checkErr(expectedTermsAndConditionError, "terms"));
     }
 }
